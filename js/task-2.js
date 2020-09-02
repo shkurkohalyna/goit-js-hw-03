@@ -1,27 +1,14 @@
-// Напиши скрипт подсчета стоимости гравировки украшений.Для этого создай
-// функцию calculateEngravingPrice(message, pricePerWord) принимающую строку
-//     (в строке будут только слова и пробелы) и цену гравировки одного слова,
-//         и возвращающую цену гравировки всех слов в строке.
+// Напиши функцию countProps(obj), считающую кол - во свойств в объекте.
+// Функция возвращает число - количество свойств.
 
-const calculateEngravingPrice = (message = "", pricePerWord = 0) =>
-  message.split(" ").length * pricePerWord;
+const countProps = function (obj) {
+  "use strict";
 
-console.log(
-  calculateEngravingPrice(
-    "Proin sociis natoque et magnis parturient montes mus",
-    10
-  )
-);
-console.log(
-  calculateEngravingPrice(
-    "Proin sociis natoque et magnis parturient montes mus",
-    20
-  )
-);
-console.log(
-  calculateEngravingPrice("Donec orci lectus aliquam est magnis", 40)
-);
-console.log(
-  calculateEngravingPrice("Donec orci lectus aliquam est magnis", 20)
-);
-console.log(calculateEngravingPrice("Uno", 100));
+  return Object.keys(obj).length;
+};
+
+console.log(countProps({})); // 0
+
+console.log(countProps({ name: "Mango", age: 2 })); // 2
+
+console.log(countProps({ mail: "poly@mail.com", isOnline: true, score: 500 })); // 3

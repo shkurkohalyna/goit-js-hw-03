@@ -1,22 +1,26 @@
-// const logItems = ["Mango", "Poly", "Ajax", "Lux", "Jay", "Kong"];
-// for (let i = 0; i <= logItems.length - 1; i += 1) {
-//   logItems[i] += `-${i + 1}`;
-// }
-// console.table(logItems);
+// Напиши скрипт, который, для объекта user, последовательно:
 
-// const logItems = ["Mango", "Poly", "Ajax", "Lux", "Jay", "Kong"];
+// добавляет поле mood со значением 'happy'
+// заменяет значение hobby на 'skydiving'
+// заменяет значение premium на false
+// выводит содержимое объекта user в формате ключ: значение используя Object.keys() и for...of
 
-// for (let i = 0; i < logItems.length; i += 1) {
-//   console.log(`${i + 1} - ${logItems[i]}`);
-// }
-
-const getItemsString = function (array) {
-  "use strict";
-  let result = "";
-  for (let i = 0; i < array.length; i += 1) {
-    result += `${i + 1} - ${array[i]}\n`;
-  }
-  return result;
+let message = "";
+const user = {
+  age: 20,
+  hobby: "html",
+  name: "Mango",
+  premium: true,
 };
+user.mood = "happy";
+user["full time"] = true;
 
-console.log(getItemsString(["Mango", "Poly", "Ajax", "Lux", "Jay", "Kong"]));
+user.hobby = "skydiving";
+user.premium = false;
+
+const keys = Object.keys(user);
+for (const key of keys) {
+  message += `${key} : ${user[key]}\n`;
+} // Write code under this line
+
+console.log(message);

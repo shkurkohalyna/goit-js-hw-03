@@ -1,20 +1,25 @@
-// Напиши функцию checkForSpam(message), принимающую 1 параметр message - строку.
-// Функция проверяет ее на содержание слов spam и sale.Если нашли зарещенное слово
-// то функция возвращает true, если запрещенных слов нет функция возвращает false.
-// Слова в строке могут быть в произвольном регистре.
+// Напиши функцию getAllPropValues(arr, prop), которая получает массив объектов и имя свойства.
+// Возвращает массив значений определенного свойства prop из каждого объекта в массиве.
 
-function checkForSpam(str) {
-  "use strict";
+const products = [
+  { name: "Радар", price: 1300, quantity: 4 },
+  { name: "Сканер", price: 2700, quantity: 3 },
+  { name: "Дроид", price: 400, quantity: 7 },
+  { name: "Захват", price: 1200, quantity: 2 },
+];
 
-  let message =
-    str.toLowerCase().includes("spam") || str.toLowerCase().includes("sale");
+const getAllPropValues = function (array, prop) {
+  const result = [];
+  for (const product of array) {
+    if (prop in product) {
+      result.push(product[prop]);
+    }
+  }
+  return result;
+};
 
-  return message;
-}
-console.log(checkForSpam("Latest technology news")); // false
+console.log(getAllPropValues(products, "name")); // ['Радар', 'Сканер', 'Дроид', 'Захват']
 
-console.log(checkForSpam("JavaScript weekly newsletter")); // false
+console.log(getAllPropValues(products, "quantity")); // [4, 3, 7, 2]
 
-console.log(checkForSpam("Get best sale offers now!")); // true
-
-console.log(checkForSpam("[SPAM] How to earn fast money?")); // true
+console.log(getAllPropValues(products, "category")); // []
